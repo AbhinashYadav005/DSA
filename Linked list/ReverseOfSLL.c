@@ -67,9 +67,34 @@ void InsertionFromPOS(int value,int pos){
 }
 
 void ReverseList(){
-    struct SLL *temp,tempp;
-    temp = first;
-    while( temp != NULL){
-           = last
+    struct SLL *prev=NULL, *current = first, *next = NULL;
+
+    while( current != NULL){
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
     }
+    first = prev;
+}
+
+void Traverse(){
+    struct SLL *temp;
+    temp = first;
+    while(temp != NULL){
+        printf("%d -> ",temp->data);
+        temp = temp->next;
+    }
+    printf("NULL\n");
+}
+
+int main(){
+    InsertionFromBeg(4);
+    InsertionFromEnd(10);
+    InsertionFromBeg(7);
+    InsertionFromBeg(22);
+    Traverse();
+    ReverseList();
+    Traverse();
+    return 0;
 }
