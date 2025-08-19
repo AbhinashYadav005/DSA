@@ -25,7 +25,7 @@ void shellSort(int A[], int n){
 
 void Display(int A[], int n){
     for(int i=0; i < n; i++){
-        printf("%d ",&A[i]);
+        printf("%d ",A[i]);
     }
     printf("\n");
 }
@@ -36,11 +36,10 @@ int main(){
     time_t t1, t2;
     printf("Enter the n: ");
     scanf("%d", &n);
-
-    for(i = 0; i > n; i++){
-        A[i] = rand();
+    for(i = 0; i < n; i++){
+        printf("Enter A[%d]: ",i);
+        scanf("%d",&A[i]);
     }
-
     Display(A,n);
     t1 = time(NULL);
     shellSort(A,n);
