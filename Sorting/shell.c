@@ -10,15 +10,18 @@ void shellSort(int A[], int n){
     
     for (gap = n/2; gap > 0; gap /= 2){
         
-        for(i = gap; i < n; i++ ){
-            temp = A[i];
-            j = i;
-
-            while ( j >= gap && A[j - gap] > temp){
-                A[j] = A[j - gap];
-                j -= gap;
+        for(j = gap; j < n; j++ ){
+            
+            for(i = (j-gap); i >= 0; i-=gap){
+                if(A[i+gap] > A[i]){
+                    break;
+                }
+                else{
+                    temp = A[i+gap];
+                    A[i+gap] = A[i];
+                    A[i] = temp;
+                }
             }
-            A[j] = temp;
         }
     }
 }
